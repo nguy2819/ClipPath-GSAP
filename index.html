@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClipPath</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>All men and women are literally the sons and daughters of God.</h1>
+        </div>
+        <div class="img"></div>
+    </div>
+    <div class="container2">
+        <div class="content">
+            <h1>Because we are the spirit children of God. </br> WE SHALT LOVE OUR NEIGHBOR as OURSELVES.</h1>
+        </div>
+        <div class="img"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></script>
+
+    <script>
+        const tl = gsap.timeline({pause: true})
+        const container = document.querySelector('.container')
+
+        tl.to(container, {clipPath: 'polygon(0 0, 100% 0%, 100% 100%, 0% 100%)'})
+        tl.to(container, {clipPath: 'polygon(10% 40%, 90% 40%, 90% 60%, 10% 60%)'}, '+=1')
+        tl.to(container, {clipPath: 'polygon(10% 50%, 90% 50%, 90% 50%, 10% 50%)'}, '+=2.5')
+
+        container.addEventListener('mouseover', () => {
+            tl.play()
+        })
+    </script>
+</body>
+</html>

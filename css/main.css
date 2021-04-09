@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Dancing Script', serif;
+}
+
+.container {
+  z-index: 5;
+  height: 100vh;
+  position: absolute;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  width: 100%;
+  -webkit-transition: -webkit-clip-path 1s;
+  transition: -webkit-clip-path 1s;
+  transition: clip-path 1s;
+  transition: clip-path 1s, -webkit-clip-path 1s;
+}
+
+.container .img {
+  background: url("../pictures/The-Grand-Council-e1382849877813.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+.container .content {
+  position: absolute;
+  z-index: 1;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.container .content h1 {
+  font-size: 3rem;
+}
+
+.container2 .img {
+  background: url("../pictures/p5wYQ1.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+.container2 .content {
+  position: absolute;
+  z-index: 1;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.container2 .content h1 {
+  font-size: 3rem;
+  position: absolute;
+  text-align: center;
+  margin-left: 190px;
+  margin-top: 330px;
+}
+/*# sourceMappingURL=main.css.map */
