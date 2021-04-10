@@ -1,38 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClipPath</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
     <div class="container">
         <div class="content">
             <h1>All men and women are literally the sons and daughters of God.</h1>
         </div>
-        <div class="img"></div>
+        <div class="img">
+            <div class="fade"></div>
+        </div>
     </div>
     <div class="container2">
         <div class="content">
             <h1>Because we are the spirit children of God. </br> WE SHALT LOVE OUR NEIGHBOR as OURSELVES.</h1>
+            <span class="button-container">
+                <button role="link" class="weare">We Are Children of God</button>
+                <button role="link" class="howto">How to Love Thy Neighbor as Thyself?</button>
+                <button role="link" class="portfolio">Check My Portfolio</button>
+            </span>
         </div>
-        <div class="img"></div>
+
+        <div class="img">
+            <div class="fade">
+            </div>
+
+        </div>
+
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+        integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+        crossorigin="anonymous"></script>
 
     <script>
-        const tl = gsap.timeline({pause: true})
+        const tl = gsap.timeline({ pause: true, defaults: { duration: .5 } })
         const container = document.querySelector('.container')
+        const container2 = document.querySelector('.container2')
 
-        tl.to(container, {clipPath: 'polygon(0 0, 100% 0%, 100% 100%, 0% 100%)'})
-        tl.to(container, {clipPath: 'polygon(10% 40%, 90% 40%, 90% 60%, 10% 60%)'}, '+=1')
-        tl.to(container, {clipPath: 'polygon(10% 50%, 90% 50%, 90% 50%, 10% 50%)'}, '+=2.5')
+        tl.to(container, { clipPath: 'polygon(0 0, 100% 0%, 100% 100%, 0% 100%)' })
+        tl.to(container, { clipPath: 'polygon(4% 42%, 96% 42%, 96% 59%, 4% 59%)' }, '+=1')
+        tl.to('.container .fade', {
+            opacity: .7,
+            ease: 'power2.out',
+            duration: 1
+        })
+        tl.to(container, { clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)' }, '+=2.5')
+        // tl.to('.button-container', {opacity: 1, duration: 1, ease: 'power2.out'}, '+=1' )
+        tl.to(container2, { clipPath: 'polygon(0 0, 100% 0%, 100% 100%, 0% 100%)' }, '+=.5')
+
+        const pageFade = (destination) => {
+            const fadeTimeline = gsap.timeline();
+            fadeTimeline.to('.fade', {
+                duration: 2,
+                opacity: 1,
+                ease: 'power2.out',
+                onComplete: () => {
+                    window.location.href = destination
+                }
+            });
+
+            fadeTimeline.to('.content', {
+                duration: 2,
+                opacity: 0,
+                ease: 'power2.out'
+            }, '-=2')
+        }
+
+        // const port = gsap.to('.fade', {
+        //     duration: 2,
+        //     opacity: 1,
+        //     ease: 'power2.out',
+        //     onComplete: () => {
+        //         window.location.href = 'https://portfolio-2021-tienborland.vercel.app/'
+        //     }
+        // });
+        // port.pause();
 
         container.addEventListener('mouseover', () => {
             tl.play()
         })
+        document.querySelector('.weare').addEventListener('click', () => {
+            pageFade('https://www.churchofjesuschrist.org/study/general-conference/1998/10/we-are-children-of-god?lang=eng');
+        });
+
+        document.querySelector('.howto').addEventListener('click', () => {
+            pageFade('https://www.churchofjesuschrist.org/study/manual/teachings-john-taylor/chapter-3?lang=eng');
+        });
+
+        document.querySelector('.portfolio').addEventListener('click', () => {
+            pageFade('https://portfolio-2021-tienborland.vercel.app/')
+        });
     </script>
 </body>
+
 </html>
